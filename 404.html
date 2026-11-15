@@ -47,7 +47,7 @@ p{margin:0;text-wrap:pretty}
 .info a{text-decoration:none;font-variant-numeric:tabular-nums}.info .mid{opacity:.8}
 @media (max-width:760px){.info .mid{display:none}}
 .hdr{position:sticky;top:0;z-index:50;background:rgba(21,17,15,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--bread);border-bottom:1px solid var(--lined);transition:box-shadow .3s}
-.hdr.sc{box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.hdr.is-sc{box-shadow:0 10px 30px rgba(0,0,0,.35)}
 .hdr .wrap{display:flex;align-items:center;gap:24px;min-height:72px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:auto}
 .brand .mk{width:50px;height:50px;flex:none}
@@ -198,6 +198,9 @@ p{margin:0;text-wrap:pretty}
 .midx a:hover{background:rgba(28,21,18,.05)}
 .midx a.on{background:var(--coal);color:var(--bread)}.midx a.on small{color:var(--saffron)}
 .mcat{margin-bottom:var(--s8);scroll-margin-top:100px}
+html.mtabs .mcat:not(.on){display:none}html.mtabs .mcat{margin-bottom:var(--s3);min-height:360px}
+.mnext{display:none}html.mtabs .mnext{display:inline-flex;align-items:center;gap:10px;margin-top:var(--s4);padding:14px 18px;border-radius:var(--r);background:var(--coal);color:var(--bread);text-decoration:none;font-weight:600;transition:transform .16s var(--ease)}
+.mnext .ar{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s var(--ease)}.mnext:hover .ar{transform:translateX(4px)}.mnext:active{transform:scale(.97)}
 .mcat-h{display:flex;align-items:center;gap:16px;margin-bottom:var(--s3);padding-bottom:var(--s2);border-bottom:2px solid var(--coal)}
 .mcat-h h3{font-size:clamp(2rem,1.5rem + 2vw,3rem)}
 .mcat-h p{margin-left:auto;font:700 1.35rem/1 var(--fh);color:var(--fire2);text-align:right}
@@ -312,7 +315,7 @@ html.calm *,html.calm *::before,html.calm *::after{animation:none!important;tran
 html.calm [data-r],html.calm h2[data-r] .w{opacity:1!important;transform:none!important}
 html.calm .mlinks a{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}.js [data-r],.js h2[data-r] .w{opacity:1!important;transform:none!important}.mlinks a{opacity:1!important;transform:none!important}.embers{display:none}}
-.pv{padding-block:var(--s12)}.pv .wrap{max-width:760px}.pv h1{font-size:clamp(3rem,2rem + 4vw,5rem);margin-bottom:var(--s4)}.pv h2{font-size:1.8rem;margin:var(--s4) 0 var(--s2)}.pv p{color:var(--ink2)}</style></head><body><header class="hdr sc"><div class="wrap"><a class="brand" href="./#top" aria-label="Turkish Kebab e Grill, torna su"><svg class="mk" viewBox="0 0 120 120" aria-hidden="true">
+.pv{padding-block:var(--s12)}.pv .wrap{max-width:760px}.pv h1{font-size:clamp(3rem,2rem + 4vw,5rem);margin-bottom:var(--s4)}.pv h2{font-size:1.8rem;margin:var(--s4) 0 var(--s2)}.pv p{color:var(--ink2)}</style></head><body><header class="hdr is-sc"><div class="wrap"><a class="brand" href="./#top" aria-label="Turkish Kebab e Grill, torna su"><svg class="mk" viewBox="0 0 120 120" aria-hidden="true">
  <defs><path id="hbc" d="M60 60 m-39 0 a39 39 0 1 1 78 0 a39 39 0 1 1 -78 0"/></defs>
  <circle cx="60" cy="60" r="58" fill="#15110f"/><circle cx="60" cy="60" r="53" fill="none" stroke="#e5482b" stroke-width="2"/>
  <g class="mk-ring"><text font-family="Big Shoulders Display,Arial Narrow,sans-serif" font-weight="800" font-size="13" fill="#f4e7cf"><textPath href="#hbc" textLength="242" lengthAdjust="spacing">TURKISH KEBAP · GRILL · CESENA ·</textPath></text></g>
