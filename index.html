@@ -624,7 +624,7 @@ html.calm .mlinks a{opacity:1;transform:none}
   function show(n){scenes.forEach(function(s,k){s.classList.toggle('on',k===n)})}
   function next(){i=(i+1)%W.length;var old=[].slice.call(rot.querySelectorAll('i'));old.forEach(function(o,k){if(k<old.length-1){o.remove();return}
     if(o.animate&&!calm())o.animate([{transform:'none',opacity:1},{transform:'translateY(-100%)',opacity:0}],{duration:420,easing:'cubic-bezier(.77,0,.175,1)',fill:'forwards'}).onfinish=function(){o.remove()};else o.remove()});
-   var n=document.createElement('i');n.textContent=W[i];rot.appendChild(n);
+   if(window.__fitRot)window.__fitRot();var n=document.createElement('i');n.textContent=W[i];rot.appendChild(n);
    if(n.animate&&!calm())n.animate([{transform:'translateY(100%)',opacity:0},{transform:'none',opacity:1}],{duration:520,easing:'cubic-bezier(.23,1,.32,1)'});
    rot.setAttribute('aria-label',W[i]);show(i)}
   var tm=setInterval(function(){if(document.hidden||calm())return;next()},3200);
@@ -634,7 +634,7 @@ html.calm .mlinks a{opacity:1;transform:none}
  // la parola che cambia sta sempre in una riga
  run(function(){var rot=document.querySelector('.rot');if(!rot)return;var W=["un panino kebap", "una grigliata mista", "un künefe", "una pide"];function fit(){rot.style.fontSize='';var cs=getComputedStyle(rot),m=document.createElement('span');m.style.cssText='position:absolute;visibility:hidden;white-space:nowrap;text-transform:uppercase';m.style.fontFamily=cs.fontFamily;m.style.fontWeight=cs.fontWeight;m.style.fontSize=cs.fontSize;m.style.letterSpacing=cs.letterSpacing;document.body.appendChild(m);
   var w=0;W.forEach(function(t){m.textContent=t;w=Math.max(w,m.getBoundingClientRect().width)});m.remove();var av=rot.parentNode.getBoundingClientRect().width;if(w>av){rot.style.fontSize=(parseFloat(cs.fontSize)*av/w*.98)+'px'}}
-  fit();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);addEventListener('resize',fit)});
+  window.__fitRot=fit;fit();if(document.fonts){document.fonts.ready.then(fit);document.fonts.addEventListener&&document.fonts.addEventListener('loadingdone',fit)}addEventListener('resize',fit)});
  // braci che salgono
  run(function(){var b=document.querySelector('.embers');if(!b||calm())return;for(var k=0;k<18;k++){var s=document.createElement('i');s.style.left=(Math.random()*100)+'%';s.style.animationDelay=(-Math.random()*7)+'s';s.style.animationDuration=(5+Math.random()*5)+'s';s.style.setProperty('--x',(Math.random()*80-40)+'px');b.appendChild(s)}});
 
